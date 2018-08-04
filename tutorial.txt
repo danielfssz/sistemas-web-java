@@ -1,6 +1,0 @@
-Criar projeto JAVA WEB
-Criar pacote "com.br.ifsp" na pasta Pacotes de codigo fonte
-Dentro do pacote criar um novo servelet
-	Colocar nome no servlet
-	Marcar a opcao Adicionar informações ao descritor de implantacao web.xml (Ele vai mapear cada servlet)
-	

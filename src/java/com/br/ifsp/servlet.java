@@ -25,18 +25,31 @@ public class servlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet servlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet servlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
+
+            if (login.equals("daniel") && senha.equals("123456")) {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet servlet</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1> Parabéns! Bem vindo</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            } else {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Servlet servlet</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>A casa caiu!!</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }
     }
 
