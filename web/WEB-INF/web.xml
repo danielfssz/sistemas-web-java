@@ -4,9 +4,17 @@
         <servlet-name>servlet</servlet-name>
         <servlet-class>com.br.ifsp.servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servletCalculo</servlet-name>
+        <servlet-class>com.br.ifsp.servletCalculo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>servlet</servlet-name>
         <url-pattern>/servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletCalculo</servlet-name>
+        <url-pattern>/servletCalculo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
