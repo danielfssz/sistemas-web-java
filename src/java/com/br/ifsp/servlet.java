@@ -29,26 +29,10 @@ public class servlet extends HttpServlet {
             String login = request.getParameter("login");
             String senha = request.getParameter("senha");
 
-            if (login.equals("daniel") && senha.equals("123456")) {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet servlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1> Parabéns! Bem vindo</h1>");
-                out.println("</body>");
-                out.println("</html>");
+            if (login.equals("italo") && senha.equals("123456")) {
+                response.sendRedirect("logged.jsp");
             } else {
-                out.println("<!DOCTYPE html>");
-                out.println("<html>");
-                out.println("<head>");
-                out.println("<title>Servlet servlet</title>");
-                out.println("</head>");
-                out.println("<body>");
-                out.println("<h1>A casa caiu!!</h1>");
-                out.println("</body>");
-                out.println("</html>");
+                response.sendRedirect("loginfailed.jsp");
             }
         }
     }
