@@ -12,7 +12,13 @@
         <title>Resultado</title>
     </head>
     <body>
-        <h1>Resultado da <% out.println(request.getAttribute("calculo")); %></h1>
-        <h3><% request.getAttribute("resultado").toString(); %></h3>
+        <% String calculo = request.getAttribute("calculo").toString(); %>
+        <h1>Resultado da <%=calculo%></h1>
+        
+        <% String resultado = request.getAttribute("resultado").toString(); %>
+        <h3><%=resultado%></h3>
+        
+        
+        <h5><a href="calculo.jsp">Calculadora</a></h5>
     </body>
 </html>

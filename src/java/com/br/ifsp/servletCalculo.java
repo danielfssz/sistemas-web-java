@@ -7,6 +7,7 @@ package com.br.ifsp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -38,27 +39,35 @@ public class servletCalculo extends HttpServlet {
             
             if (calculo.equals("1")){
                 Float soma = n1 + n2;
-                request.getSession().setAttribute("resultado", Float.toString(soma));
-                request.getSession().setAttribute("calculo", "soma");
-                response.sendRedirect("result.jsp");
+                request.setAttribute("resultado", Float.toString(soma));
+                request.setAttribute("calculo", "soma");
+                
+                RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+                view.forward(request, response);
             }
             else if (calculo.equals("2")){
                 Float sub = n1 - n2;
-                request.getSession().setAttribute("resultado", Float.toString(sub));
-                request.getSession().setAttribute("calculo", "subtração");
-                response.sendRedirect("result.jsp");
+                request.setAttribute("resultado", Float.toString(sub));
+                request.setAttribute("calculo", "subtração");
+                
+                RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+                view.forward(request, response);
             }
             else if (calculo.equals("3")){
                 Float mult = n1 * n2;
-                request.getSession().setAttribute("resultado", Float.toString(mult));
-                request.getSession().setAttribute("calculo", "multiplicação");
-                response.sendRedirect("result.jsp");
+                request.setAttribute("resultado", Float.toString(mult));
+                request.setAttribute("calculo", "multiplicação");
+                
+                RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+                view.forward(request, response);
             }
             else if (calculo.equals("4")) {
                 Float div = n1 / n2;
-                request.getSession().setAttribute("resultado", Float.toString(div));
-                request.getSession().setAttribute("calculo", "divisão");
-                response.sendRedirect("result.jsp");
+                request.setAttribute("resultado", Float.toString(div));
+                request.setAttribute("calculo", "divisão");
+                
+                RequestDispatcher view = request.getRequestDispatcher("result.jsp");
+                view.forward(request, response);
             }
             
         }
