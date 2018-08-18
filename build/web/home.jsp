@@ -69,27 +69,29 @@
             <!-- Example row of columns -->
             <div class="row">
                 <div class="col-md-6">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Digite os valores a serem calculados:</span>
+                    <form id="frmCalcular">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Digite os valores a serem calculados:</span>
+                            </div>
+                            <input type="text" class="form-control" name="val1" id="val1">
+                            <input type="text" class="form-control" name="val2" id="val2">
                         </div>
-                        <input type="text" class="form-control" name="val1" id="val1">
-                        <input type="text" class="form-control" name="val2" id="val2">
-                    </div>
-                    <br />
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="">Selecione a operacao:</span>
+                        <br />
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="">Selecione a operacao:</span>
+                            </div>
+                            <select id="operacao">
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                                <option value="/">/</option>
+                                <option value="*">*</option>
+                            </select>
                         </div>
-                        <select id="operacao">
-                            <option value="+">+</option>
-                            <option value="-">-</option>
-                            <option value="/">/</option>
-                            <option value="*">*</option>
-                        </select>
-                    </div>
-                    <br />
-                    <button class="btn btn-secondary btn-block" role="button" id="calcular">Calcular</button>
+                        <br />
+                        <button type="submit" class="btn btn-secondary btn-block" id="calcular">Calcular</button>
+                    </form>
                 </div>
                 <div class="col-md-3">
                     <h2>Resultado da operacao</h2>
@@ -101,6 +103,13 @@
                         <li>Daniel</li>
                         <li>Alvaro</li>
                     </ul>
+
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
 
                     </p>
                 </div>
@@ -120,13 +129,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script type="text/javascript" src="home.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
-
+    <script type="text/javascript" src="home.js" charset="utf-8"></script>
 </body>
 
 </html>
