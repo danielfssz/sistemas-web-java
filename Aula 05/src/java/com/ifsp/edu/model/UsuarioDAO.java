@@ -5,10 +5,9 @@
  */
 package com.ifsp.edu.model;
 
-
-import  com.ifsp.edu.model.FabricaConexao;
+import com.ifsp.edu.model.FabricaConexao;
 import java.sql.Connection;
-import  com.ifsp.edu.model.Usuario;
+import com.ifsp.edu.model.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -21,25 +20,25 @@ import java.util.List;
  * @author aluno
  */
 public class UsuarioDAO {
+
     private Connection cn;
-    
-    public UsuarioDAO() throws ClassNotFoundException{
-       cn=new FabricaConexao().getConnection();
+
+    public UsuarioDAO() throws ClassNotFoundException {
+        cn = new FabricaConexao().getConnection();
     }
-    
-    public void adicionar (Usuario usuario){
-        String sql="insert into usuario " +
-                "(nome,login,senha) " +
-                "values (?,?,?)";
-        
-         try {
+
+    public void adicionar(Usuario usuario) {
+        String sql = "insert into usuario "
+                + "(nome,login,senha) "
+                + "values (?,?,?)";
+
+        try {
             // prepared statement para insert
             PreparedStatement stmt = cn.prepareStatement(sql);
-            
-            stmt.setString(1,usuario.getNome());
-            stmt.setString(2,usuario.getLogin());
-            stmt.setString(3,usuario.getSenha());
- 
+
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, usuario.getLogin());
+            stmt.setString(3, usuario.getSenha());
 
             // executa
             stmt.execute();
@@ -47,20 +46,19 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    } 
-    
-        public void alterar (Usuario usuario){
-        String sql="update usuario set nome=?,senha=?,login=? where id=?";
-                       
-         try {
+    }
+
+    public void alterar(Usuario usuario) {
+        String sql = "update usuario set nome=?,senha=?,login=? where id=?";
+
+        try {
             // prepared statement para insert
             PreparedStatement stmt = cn.prepareStatement(sql);
-            
-            stmt.setString(1,usuario.getNome());
-            stmt.setString(2,usuario.getSenha());
-            stmt.setString(3,usuario.getLogin());
-            stmt.setInt(4,usuario.getId());
- 
+
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, usuario.getSenha());
+            stmt.setString(3, usuario.getLogin());
+            stmt.setInt(4, usuario.getId());
 
             // executa
             stmt.execute();
@@ -68,68 +66,60 @@ public class UsuarioDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    } 
-    
-        
-    public Usuario getByLogin(String login)  throws SQLException{
-    	Usuario item=null;
-    	ResultSet results;
-    	
-    	try {
-    					String sql="Select * from usuario where login='" + login + "';";
-    		
-    					PreparedStatement stmt = cn.prepareStatement(sql);    					
-    					 results = stmt.executeQuery();
-    					 
-    					 while (results.next())
-    					 {
-                                                 item=new Usuario();
-    						 item.setId(Integer.parseInt(results.getObject("id").toString()));
-    						 item.setNome(results.getObject("nome").toString());
-    						 item.setLogin(results.getObject("login").toString());
-                                                 item.setSenha(results.getObject("senha").toString());
-                                                 
-    					 }
-    				
-    					
-    					 
-    			
-    		return item;
-    		
-    	}
-    	catch(SQLException e) {
-    		throw e;
-    	}
-    	}
-    
-        public List<Usuario> Lista()  {
-                    	List<Usuario> lista =new ArrayList<Usuario>();
-                        ResultSet results;            
-        	try {
-       					String sql="Select * from usuario;";
-    		
-    					PreparedStatement stmt = cn.prepareStatement(sql);    					
-    					 results = stmt.executeQuery();
-    					 
-    					 while (results.next())
-    					 {       Usuario item=new Usuario();
-    						 item.setId(Integer.parseInt(results.getObject("id").toString()));
-    						 item.setNome(results.getObject("nome").toString());
-    						 item.setLogin(results.getObject("login").toString());
-                                                 item.setSenha(results.getObject("senha").toString());
-                                                 
-                                                 lista.add(item);
-                                                 
-    					 }
-    				    				    			
-    		return lista;
-    		
-    	}
-    	catch(SQLException e) {
-    		throw new RuntimeException(e);
-    	}
-    	}
-        
+    }
+
+    public Usuario getByLogin(String login) throws SQLException {
+        Usuario item = null;
+        ResultSet results;
+
+        try {
+            String sql = "Select * from usuario where login='" + login + "';";
+
+            PreparedStatement stmt = cn.prepareStatement(sql);
+            results = stmt.executeQuery();
+
+            while (results.next()) {
+                item = new Usuario();
+                item.setId(Integer.parseInt(results.getObject("id").toString()));
+                item.setNome(results.getObject("nome").toString());
+                item.setLogin(results.getObject("login").toString());
+                item.setSenha(results.getObject("senha").toString());
+
+            }
+
+            return item;
+
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    public List<Usuario> Lista() {
+        List<Usuario> lista = new ArrayList<Usuario>();
+        ResultSet results;
+        try {
+            String sql = "Select * from usuario;";
+
+            PreparedStatement stmt = cn.prepareStatement(sql);
+            results = stmt.executeQuery();
+
+            while (results.next()) {
+                Usuario item = new Usuario();
+                item.setId(Integer.parseInt(results.getObject("id").toString()));
+                item.setNome(results.getObject("nome").toString());
+                item.setLogin(results.getObject("login").toString());
+                item.setSenha(results.getObject("senha").toString());
+
+                lista.add(item);
+            }
+
+            return lista;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private final List<Object[]> indexResults(ResultSet results)
             throws SQLException {
         Object[] values;
@@ -137,12 +127,12 @@ public class UsuarioDAO {
         ResultSetMetaData metadata = null;
         List<Object[]> items = null;
         int ncols = 0;
-        
+
         /*
          * Vamos iterar pelos registros
          */
         while (results.next()) {
-            
+
             /*
              * instancia a lista pela primeira vez, assim como
              * alocamos um array de objetos que vai armazenar as
@@ -155,23 +145,23 @@ public class UsuarioDAO {
                 metadata = results.getMetaData();
                 ncols = metadata.getColumnCount();
                 cols = new String[ncols];
-                for (int i = 1; i <= ncols; i++)
+                for (int i = 1; i <= ncols; i++) {
                     cols[i - 1] = metadata.getColumnName(i);
+                }
                 items.add(cols);
             }
-            
+
             /*
              * transferimos o conteúdo do ResultSet, linha a linha.
              */
             values = new Object[ncols];
-            for (int i = 0; i < cols.length; i++)
+            for (int i = 0; i < cols.length; i++) {
                 values[i] = results.getObject(i + 1);
+            }
             items.add(values);
         }
-        
+
         return items;
     }
 
-    
-    
 }
