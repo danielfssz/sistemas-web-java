@@ -30,7 +30,7 @@
                         <a class="nav-link" href="#">Produto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cliente</a>
+                        <a class="nav-link" href="cadastro_cliente.jsp">Cliente</a>
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="#">Sobre</a>
