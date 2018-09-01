@@ -6,8 +6,8 @@
 
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="dao.aula4.UsuarioDAO"%>
-<%@page import="da.aula4.Usuario"%>
+<%@page import="com.ifsp.edu.model.UsuarioDAO"%>
+<%@page import="com.ifsp.edu.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,29 +17,28 @@
     </head>
     <body>
         <%
-                   String Login =request.getParameter("login");
-            String Senha =request.getParameter("senha");
-            String Nome =request.getParameter("nome");
-            int Id =Integer.parseInt(request.getParameter("id")) ;   
-                
-             Usuario vo=new Usuario();
-             UsuarioDAO da = new UsuarioDAO();
-             
-                vo.setSenha(Senha);
-                vo.setLogin(Login);
-                vo.setId(Id);
-                vo.setNome(Nome);
-                da.alterar(vo);
-                
-          List<Usuario> usuarios=new ArrayList<Usuario>();
-        usuarios = da.Lista();
-        request.setAttribute("xuxa", usuarios);
-		
-        RequestDispatcher dispatcher=request.getRequestDispatcher("inicial_bean.jsp");
-        dispatcher.forward(request, response);
-        
+            String Login = request.getParameter("login");
+            String Senha = request.getParameter("senha");
+            String Nome = request.getParameter("nome");
+            int Id = Integer.parseInt(request.getParameter("id"));
 
-        
+            Usuario vo = new Usuario();
+            UsuarioDAO da = new UsuarioDAO();
+
+            vo.setSenha(Senha);
+            vo.setLogin(Login);
+            vo.setId(Id);
+            vo.setNome(Nome);
+            da.alterar(vo);
+
+            List<Usuario> usuarios = new ArrayList<Usuario>();
+            usuarios = da.Lista();
+            request.setAttribute("xuxa", usuarios);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
+            dispatcher.forward(request, response);
+
+
         %>
     </body>
 </html>
