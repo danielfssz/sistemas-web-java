@@ -31,6 +31,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="cadastro_cliente.jsp">Cliente</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cadastro_aluno.jsp">Alunos</a>
                     </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="#">Sobre</a>
