@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label>Data de Nascimento</label>
-            <input type="date" class="form-control" id="dt-nasc" name="dt_nasc" placeholder="Digite a data de nascimento">
+            <input type="date" class="form-control" id="dt_nascimento" name="dt_nascimento" placeholder="Digite a data de nascimento">
         </div>
         <div class="form-group">
             <label>Email</label>

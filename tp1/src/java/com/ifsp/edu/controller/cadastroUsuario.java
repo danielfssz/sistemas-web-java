@@ -86,10 +86,7 @@ public class cadastroUsuario extends HttpServlet {
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
             dispatcher.forward(request, response);
-
-            //out.println("<a href=\"login\">Formulario Cadastro</a>");
-            //out.println("</body>");
-            //out.println("</html>"); 
+            
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

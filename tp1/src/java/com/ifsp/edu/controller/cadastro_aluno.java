@@ -5,8 +5,18 @@
  */
 package com.ifsp.edu.controller;
 
+import com.ifsp.edu.model.AlunoDAO;
+import com.ifsp.edu.model.AlunoVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,15 +42,7 @@ public class cadastro_aluno extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet cadastro_aluno</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet cadastro_aluno at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
         }
     }
 
@@ -71,6 +73,42 @@ public class cadastro_aluno extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
+        try {
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
+            AlunoDAO dao = new AlunoDAO();
+            AlunoVO aluno = new AlunoVO();
+            List<AlunoVO> alunos = new ArrayList<AlunoVO>();
+
+            String nome = request.getParameter("nome");
+            String endereco = request.getParameter("endereco");
+            String dt_nascimento = request.getParameter("dt_nascimento");
+            String email = request.getParameter("email");
+            String matricula = request.getParameter("matricula");
+            String cpf = request.getParameter("cpf");
+                        
+            aluno.setNome(nome);
+            aluno.setEndereco(endereco);
+            aluno.setDt_nascimento(dt_nascimento);   
+            aluno.setEmail(email);
+            aluno.setMatricula(matricula);
+            aluno.setCpf(cpf);
+
+            dao.adicionar(aluno);
+
+            alunos = dao.lista();
+
+            request.setAttribute("listaAlunos", alunos);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("lista_alunos.jsp");
+            dispatcher.forward(request, response);
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(cadastro_aluno.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(cadastro_aluno.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
