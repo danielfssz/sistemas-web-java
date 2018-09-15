@@ -72,10 +72,9 @@ public class cadastro_aluno extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
 
         try {
-            SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd");
             AlunoDAO dao = new AlunoDAO();
             AlunoVO aluno = new AlunoVO();
             List<AlunoVO> alunos = new ArrayList<AlunoVO>();
@@ -86,10 +85,10 @@ public class cadastro_aluno extends HttpServlet {
             String email = request.getParameter("email");
             String matricula = request.getParameter("matricula");
             String cpf = request.getParameter("cpf");
-                        
+
             aluno.setNome(nome);
             aluno.setEndereco(endereco);
-            aluno.setDt_nascimento(dt_nascimento);   
+            aluno.setDt_nascimento(dt_nascimento);
             aluno.setEmail(email);
             aluno.setMatricula(matricula);
             aluno.setCpf(cpf);
@@ -99,16 +98,12 @@ public class cadastro_aluno extends HttpServlet {
             alunos = dao.lista();
 
             request.setAttribute("listaAlunos", alunos);
-
             RequestDispatcher dispatcher = request.getRequestDispatcher("lista_alunos.jsp");
             dispatcher.forward(request, response);
-            
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(cadastro_aluno.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
+
+        } catch (ClassNotFoundException | ParseException ex) {
             Logger.getLogger(cadastro_aluno.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /**

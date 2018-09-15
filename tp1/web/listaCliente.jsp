@@ -8,7 +8,11 @@
     <% List<Cliente> listaCliente = (List<Cliente>) request.getAttribute("listaCliente"); %>
     <% for (Cliente cliente : listaCliente) {%>
     <ul>
-        <li><%= cliente.getNome()%></li>
+        <li>Nome: <%= cliente.getNome()%></li>
+        <li>Email:<%= cliente.getEmail() %></li>
+        <li>CEP: <%= cliente.getCep()%></li>
+        <li>Endereço: <%= cliente.getEndereco()%></li>
+        <li>Telefone: <%= cliente.getTelefone()%></li>
     </ul>
 
     <% }%>
