@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -77,9 +78,11 @@ public class deletarAluno extends HttpServlet {
             String cpf = request.getParameter("cpf");
             AlunoDAO dao;
             dao = new AlunoDAO();
-            
-            
+                        
             dao.deletar(cpf);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("cadastro_aluno.jsp");
+            dispatcher.forward(request, response);
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(deletarAluno.class.getName()).log(Level.SEVERE, null, ex);
