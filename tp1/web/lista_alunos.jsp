@@ -14,9 +14,9 @@
         <li>Data de Nascimento: <%= aluno.getDt_nascimento()%></li>
         <li>Endereço: <%= aluno.getEndereco()%></li>
         <li>Matricula: <%= aluno.getMatricula()%></li>
+        
     </ul>
 
     <% }%>
-
 </div>
 <jsp:include page="/footer.jsp"/>

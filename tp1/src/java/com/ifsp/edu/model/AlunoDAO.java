@@ -80,4 +80,19 @@ public class AlunoDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public void deletar(String cpf) {
+        String sql = "delete from aluno where cpf = \'" + cpf + "\'";
+
+        try {
+            // prepared statement para insert
+            PreparedStatement stmt = cn.prepareStatement(sql);
+
+            // executa
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
