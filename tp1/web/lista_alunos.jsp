@@ -18,6 +18,10 @@
             <input type="hidden" name="cpf" id="cpf" class="form-control" value="<%= aluno.getCpf()%>">
             <button type="submit" class="btn btn-outline-danger btn-sm">Apagar</button>
         </form>
+        <form method="get" action="alterarAluno">
+            <input type="hidden" name="cpf" id="cpf" class="form-control" value="<%= aluno.getCpf()%>">
+            <button type="submit" class="btn btn-outline-warning btn-sm">Alterar</button>
+        </form>
     </ul>
 
     <% }%>

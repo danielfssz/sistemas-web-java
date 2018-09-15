@@ -8,6 +8,10 @@
         <servlet-name>deletarAluno</servlet-name>
         <servlet-class>com.ifsp.edu.controller.deletarAluno</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>alterarAluno</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.alterarAluno</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastro_aluno</servlet-name>
         <url-pattern>/cadastro_aluno</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>deletarAluno</servlet-name>
         <url-pattern>/deletarAluno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>alterarAluno</servlet-name>
+        <url-pattern>/alterarAluno</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
