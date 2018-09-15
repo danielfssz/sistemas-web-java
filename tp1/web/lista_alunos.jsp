@@ -14,9 +14,13 @@
         <li>Data de Nascimento: <%= aluno.getDt_nascimento()%></li>
         <li>Endereço: <%= aluno.getEndereco()%></li>
         <li>Matricula: <%= aluno.getMatricula()%></li>
-        
+        <form method="post" action="deletarAluno">
+            <input type="hidden" name="cpf" id="cpf" class="form-control" value="<%= aluno.getCpf()%>">
+            <button type="submit" class="btn btn-outline-danger btn-sm">Apagar</button>
+        </form>
     </ul>
 
     <% }%>
 </div>
+
 <jsp:include page="/footer.jsp"/>
