@@ -55,7 +55,7 @@ public class controleLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
 
         Usuario usuario = new Usuario();
         List<Usuario> usuarios = new ArrayList<Usuario>();
