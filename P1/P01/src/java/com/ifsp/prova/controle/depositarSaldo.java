@@ -9,6 +9,11 @@ import com.ifsp.prova.model.Cliente;
 import com.ifsp.prova.model.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -64,18 +69,40 @@ public class depositarSaldo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
 
-        int id = Integer.parseInt(request.getParameter("id_cliente"));
-        Double valor = Double.parseDouble(request.getParameter("vl_deposito"));
-        String dataDeposito = request.getParameter("dt_deposito");
-        
-        Cliente cliente = new Cliente();
-        ClienteDAO dao = new ClienteDAO;
-        
-        cliente.setId(id);
-        
-        
+        try {
+            int id = Integer.parseInt(request.getParameter("id_cliente"));
+            Double valor = Double.parseDouble(request.getParameter("vl_deposito"));
+            String dataDeposito = request.getParameter("dt_deposito");
+
+            Cliente cliente = new Cliente();
+            ClienteDAO dao;
+            List<Cliente> listaCliente = new ArrayList<Cliente>();
+
+            dao = new ClienteDAO();
+
+            cliente.setId(id);
+            
+            Cliente clienteDepositario = dao.getClienteById(cliente);
+            
+            double saldoAtual = clienteDepositario.getSaldo();
+            saldoAtual = saldoAtual + valor;
+            
+            clienteDepositario.setSaldo(saldoAtual);
+
+            dao.depositar(cliente);
+            
+            listaCliente = dao.listaCliente();
+
+            request.setAttribute("listaCliente", listaCliente);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("lista_clientes.jsp");
+            dispatcher.forward(request, response);
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(depositarSaldo.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

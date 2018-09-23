@@ -89,9 +89,65 @@ public class ClienteDAO {
 
     }
 
-    public void depositar(Cliente cliente, Double valor, String dataDeposito) {
+    public Cliente getClienteById(Cliente cliente) {
+        Cliente clienteRet = null;
+        ResultSet results;
 
-        
-        
+        try {
+            String sql = "select * from cliente where id = ?";
+
+            PreparedStatement stmt = cn.prepareStatement(sql);
+            stmt.setString(1, String.valueOf(cliente.getId()));
+            
+            results = stmt.executeQuery();
+
+            while (results.next()) {
+                cliente = new Cliente();
+                cliente.setId(Integer.parseInt(results.getObject("id").toString()));
+                cliente.setNome(results.getObject("nome").toString());
+                cliente.setEndereco(results.getObject("endereco").toString());
+                cliente.setCpf(results.getObject("cpf").toString());
+                cliente.setSaldo(Double.parseDouble(results.getObject("saldo").toString()));
+
+                if (results.getObject("dt_ultima_operacao") == null) {
+                    cliente.setDt_ultima_operacao("");
+                } else {
+                    cliente.setDt_ultima_operacao(results.getObject("dt_ultima_operacao").toString());
+                }
+                if (results.getObject("ds_ultima_operacao") == null) {
+                    cliente.setDs_ultima_operacao("");
+                } else {
+                    cliente.setDs_ultima_operacao(results.getObject("ds_ultima_operacao").toString());
+                }
+
+                clienteRet = cliente;
+            }
+            stmt.close();
+            return clienteRet;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void depositar(Cliente cliente) {
+
+        String sql = "update cliente set saldo = ? where id = ?";
+
+        try {
+            // prepared statement para insert
+            PreparedStatement stmt = cn.prepareStatement(sql);
+
+            stmt.setString(1, String.valueOf(cliente.getSaldo()));
+            stmt.setString(2, String.valueOf(cliente.getId()));
+            
+            // executa
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

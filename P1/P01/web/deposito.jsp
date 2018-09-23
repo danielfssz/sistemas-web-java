@@ -13,7 +13,7 @@
         <title>Deposito</title>
     </head>
     <body>
-        <form id="frmDeposito"  method="get" action="controleDeposito" >
+        <form id="frmDeposito"  method="get" action="depositarSaldo" >
             <table>
 
                  <tr>
