@@ -35,13 +35,6 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
 
     public double getSaldo() {
         return saldo;
@@ -70,7 +63,15 @@ public class Cliente {
     int id;
     String nome;
     String endereco;
-    int cpf;
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    String cpf;
     double saldo;
     String dt_ultima_operacao;
     String ds_ultima_operacao;

@@ -22,13 +22,13 @@
             </tr>
 
             <tr>
-                <td> Cep</td>
-                <td> <input type="text" name="cep" id="cep_id">  </td>            
+                <td> CPF</td>
+                <td> <input type="text" name="cpf" id="cpf">  </td>            
             </tr>
             
             <tr>
                 <td>Saldo Inicial</td>
-                <td> <input type="text" name="vl_saldo" id="id_vl_saldo">  </td>              
+            <td> <input type="text" name="vl_saldo" id="id_vl_saldo">  </td>              
             </tr>
 
             <tr>

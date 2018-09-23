@@ -4,9 +4,17 @@
         <servlet-name>controleLogin</servlet-name>
         <servlet-class>com.ifsp.prova.controle.controleLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>adicionarCliente</servlet-name>
+        <servlet-class>com.ifsp.prova.controle.adicionarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controleLogin</servlet-name>
         <url-pattern>/controleLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>adicionarCliente</servlet-name>
+        <url-pattern>/adicionarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
