@@ -87,7 +87,7 @@ public class adicionarCliente extends HttpServlet {
             cliente.setSaldo(Double.parseDouble(vl_saldo));
 
             dao.adicionar(cliente);
-            listaCliente = dao.lista();
+            listaCliente = dao.listaCliente();
 
             request.setAttribute("listaCliente", listaCliente);
 

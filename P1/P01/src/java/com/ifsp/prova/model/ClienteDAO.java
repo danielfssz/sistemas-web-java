@@ -7,7 +7,9 @@ package com.ifsp.prova.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,7 +38,7 @@ public class ClienteDAO {
             stmt.setString(2, cliente.getEndereco());
             stmt.setString(3, cliente.getCpf());
             stmt.setString(4, String.valueOf(cliente.getSaldo()));
-            
+
             // executa
             stmt.execute();
             stmt.close();
@@ -46,8 +48,44 @@ public class ClienteDAO {
 
     }
 
-    public List<Cliente> lista() {
+    public List<Cliente> listaCliente() {
+        List<Cliente> listaCliente = new ArrayList<Cliente>();
+        Cliente cliente = null;
+        ResultSet results;
 
-        return null;
+        try {
+            String sql = "select * from cliente;";
+
+            PreparedStatement stmt = cn.prepareStatement(sql);
+            results = stmt.executeQuery();
+
+            while (results.next()) {
+                cliente = new Cliente();
+                cliente.setId(Integer.parseInt(results.getObject("id").toString()));
+                cliente.setNome(results.getObject("nome").toString());
+                cliente.setEndereco(results.getObject("endereco").toString());
+                cliente.setCpf(results.getObject("cpf").toString());
+                cliente.setSaldo(Double.parseDouble(results.getObject("saldo").toString()));
+
+                if (results.getObject("dt_ultima_operacao") == null) {
+                    cliente.setDt_ultima_operacao("");
+                } else {
+                    cliente.setDt_ultima_operacao(results.getObject("dt_ultima_operacao").toString());
+                }
+                if (results.getObject("ds_ultima_operacao") == null) {
+                    cliente.setDs_ultima_operacao("");
+                } else {
+                    cliente.setDs_ultima_operacao(results.getObject("ds_ultima_operacao").toString());
+                }               
+
+                listaCliente.add(cliente);
+            }
+            stmt.close();
+            return listaCliente;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
