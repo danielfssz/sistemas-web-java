@@ -12,6 +12,10 @@
         <servlet-name>depositarSaldo</servlet-name>
         <servlet-class>com.ifsp.prova.controle.depositarSaldo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sacarSaldo</servlet-name>
+        <servlet-class>com.ifsp.prova.controle.sacarSaldo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>controleLogin</servlet-name>
         <url-pattern>/controleLogin</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>depositarSaldo</servlet-name>
         <url-pattern>/depositarSaldo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sacarSaldo</servlet-name>
+        <url-pattern>/sacarSaldo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

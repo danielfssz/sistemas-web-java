@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <form id="frmSaque"  method="get" action="controleSaque" >
+       <form id="frmSaque"  method="post" action="sacarSaldo" >
             <table>
 
                  <tr>
@@ -30,7 +30,7 @@
 
                  <tr>
                      <td>Data Operacao</td>
-                     <td> <input type="text" name="dt_saque" id="id_dt_saque">  </td>            
+                     <td> <input type="date" name="dt_saque" id="id_dt_saque">  </td>            
                  </tr>
 
                  <tr>

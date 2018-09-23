@@ -98,7 +98,7 @@ public class ClienteDAO {
 
             PreparedStatement stmt = cn.prepareStatement(sql);
             stmt.setString(1, String.valueOf(cliente.getId()));
-            
+
             results = stmt.executeQuery();
 
             while (results.next()) {
@@ -144,7 +144,7 @@ public class ClienteDAO {
             stmt.setString(2, String.valueOf(cliente.getDt_ultima_operacao()));
             stmt.setString(3, String.valueOf(cliente.getDs_ultima_operacao()));
             stmt.setString(4, String.valueOf(cliente.getId()));
-            
+
             // executa
             stmt.execute();
             stmt.close();
@@ -152,5 +152,26 @@ public class ClienteDAO {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void sacar(Cliente cliente) {
+        String sql = "update cliente set saldo = ?, dt_ultima_operacao = ?, ds_ultima_operacao = ?  "
+                + "where id = ?";
+
+        try {
+            // prepared statement para insert
+            PreparedStatement stmt = cn.prepareStatement(sql);
+
+            stmt.setString(1, String.valueOf(cliente.getSaldo()));
+            stmt.setString(2, String.valueOf(cliente.getDt_ultima_operacao()));
+            stmt.setString(3, String.valueOf(cliente.getDs_ultima_operacao()));
+            stmt.setString(4, String.valueOf(cliente.getId()));
+
+            // executa
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
