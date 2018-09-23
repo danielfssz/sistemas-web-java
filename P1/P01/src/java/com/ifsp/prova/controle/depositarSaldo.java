@@ -90,8 +90,9 @@ public class depositarSaldo extends HttpServlet {
             saldoAtual = saldoAtual + valor;
             
             clienteDepositario.setSaldo(saldoAtual);
-
-            dao.depositar(cliente);
+            clienteDepositario.setDs_ultima_operacao("Deposito de " + valor);
+            clienteDepositario.setDt_ultima_operacao(dataDeposito);
+            dao.depositar(clienteDepositario);
             
             listaCliente = dao.listaCliente();
 
