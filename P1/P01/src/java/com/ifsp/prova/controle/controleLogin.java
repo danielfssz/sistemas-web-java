@@ -33,12 +33,63 @@ public class controleLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-   
-            
+
             //validar o login antes de ir par ao menu
-                
-            RequestDispatcher dispatcher=request.getRequestDispatcher("menu.jsp");
-            dispatcher.forward(request, response);	
+            try {
+                UsuarioDAO dao = new UsuarioDAO();
+
+                String login = request.getParameter("login");
+                String senha = request.getParameter("senha");
+
+                usuario = dao.getByLogin(login);
+                usuarios = dao.Lista();
+
+                PrintWriter out = response.getWriter();
+                if (usuario != null) {
+
+                    if (!usuario.getSenha().equals(senha)) {
+
+                        out.println("<!DOCTYPE html>");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title>Servlet NewServlet</title>");
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<h1>Usuário ou Senha inválida</h1>");
+                        out.println("</body>");
+                        out.println("</html>");
+
+                    } else {
+
+                        RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+                        dispatcher.forward(request, response);
+
+                    }
+                } else {
+
+                    out.println("<!DOCTYPE html>");
+                    out.println("<html>");
+                    out.println("<head>");
+                    out.println("<title>Sem Usuario</title>");
+                    out.println("</head>");
+                    out.println("<body>");
+                    out.println("<h1>Usuário nao cadatrado</h1>");
+                    out.println("</body>");
+                    out.println("</html>");
+
+                }
+
+                //out.println("<a href=\"login\">Formulario Cadastro</a>");
+                //out.println("</body>");
+                //out.println("</html>"); 
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+            dispatcher.forward(request, response);
         }
     }
 
