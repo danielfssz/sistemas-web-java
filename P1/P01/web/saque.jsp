@@ -4,6 +4,9 @@
     Author     : Elienai
 --%>
 
+    <jsp:include page="/menu.jsp"/>     
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -37,3 +40,4 @@
         </form>
     </body>
 </html>
+<jsp:include page="/footer.jsp"/>

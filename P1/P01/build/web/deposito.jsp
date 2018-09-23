@@ -28,7 +28,7 @@
 
                  <tr>
                      <td>Data Operacao</td>
-                     <td> <input type="text" name="dt_deposito" id="id_dt_deposito">  </td>            
+                     <td> <input type="date" name="dt_deposito" id="id_dt_deposito">  </td>            
                  </tr>
 
                  <tr>

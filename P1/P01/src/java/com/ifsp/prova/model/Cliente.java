@@ -11,6 +11,14 @@ package com.ifsp.prova.model;
  */
 public class Cliente {
 
+    int id;
+    String nome;
+    String endereco;
+    String cpf;
+    double saldo;
+    String dt_ultima_operacao;
+    String ds_ultima_operacao;
+
     public int getId() {
         return id;
     }
@@ -34,7 +42,6 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
 
     public double getSaldo() {
         return saldo;
@@ -60,10 +67,6 @@ public class Cliente {
         this.ds_ultima_operacao = ds_ultima_operacao;
     }
 
-    int id;
-    String nome;
-    String endereco;
-
     public String getCpf() {
         return cpf;
     }
@@ -71,9 +74,5 @@ public class Cliente {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    String cpf;
-    double saldo;
-    String dt_ultima_operacao;
-    String ds_ultima_operacao;
 
 }

@@ -76,7 +76,7 @@ public class ClienteDAO {
                     cliente.setDs_ultima_operacao("");
                 } else {
                     cliente.setDs_ultima_operacao(results.getObject("ds_ultima_operacao").toString());
-                }               
+                }
 
                 listaCliente.add(cliente);
             }
@@ -87,5 +87,11 @@ public class ClienteDAO {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void depositar(Cliente cliente, Double valor, String dataDeposito) {
+
+        
+        
     }
 }
