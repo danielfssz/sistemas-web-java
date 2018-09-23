@@ -12,8 +12,8 @@
         <li>Endereço:<%= cliente.getEndereco()%></li>
         <li>CPF: <%= cliente.getCpf()%></li>
         <li>Saldo: <%= cliente.getSaldo()%></li>
-        <li>Descricao ultima operacao <%= cliente.getDs_ultima_operacao()%></li>
-        <li>Data ultima operacao <%= cliente.getDt_ultima_operacao()%></li>
+        <li>Descricao ultima operacao: <%= cliente.getDs_ultima_operacao() == "" ? "Não houve ultima operacao" : cliente.getDs_ultima_operacao()%></li>
+        <li>Data ultima operacao: <%= cliente.getDt_ultima_operacao() == "" ? "Não houve ultima operacao" : cliente.getDt_ultima_operacao()%></li>
     </ul>   
 
     <% }%>
