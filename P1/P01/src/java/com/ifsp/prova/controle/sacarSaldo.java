@@ -88,7 +88,7 @@ public class sacarSaldo extends HttpServlet {
 
             double saldoAtual = clienteDepositario.getSaldo();
 
-            if (saldoAtual > valor) {
+            if (saldoAtual >= valor) {
                 saldoAtual = saldoAtual - valor;
 
                 clienteDepositario.setSaldo(saldoAtual);
