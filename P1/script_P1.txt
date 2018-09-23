@@ -1,0 +1,28 @@
+
+create database Banco;
+
+use Banco;
+
+
+
+create table cliente
+(	id int primary key auto_increment,
+	nome varchar(30),
+    endereco varchar(100),
+	cpf char(20),
+	saldo double,
+	dt_ultima_operacao varchar(10),
+	ds_ultima_operacao varchar(30)
+);
+
+create table usuario
+(	id int primary key auto_increment,
+	nome varchar(30),
+    login varchar(100),
+	senha varchar(10)
+);
+
+insert into usuario (nome,login,senha) values ('aluno','aluno','123');
+	
+
+	
