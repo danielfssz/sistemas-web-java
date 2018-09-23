@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <jsp:include page="/menu.jsp"/>   
         
-    <form id="frmCadCliente"  method="get" action="cadastroCliente" >
+    <form id="frmCadCliente"  method="post" action="adicionarCliente" >
         <table>
             
             <tr>

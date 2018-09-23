@@ -5,6 +5,9 @@
  */
 package com.ifsp.prova.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,7 +16,33 @@ import java.util.List;
  */
 public class ClienteDAO {
 
+    private Connection cn;
+
+    public ClienteDAO() throws ClassNotFoundException {
+        cn = new FabricaConexao().getConnection();
+    }
+
     public void adicionar(Cliente cliente) {
+
+        String sql = "insert into cliente "
+                + "(nome,endereco,cpf,saldo) "
+                + "values (?,?,?,?)";
+
+        try {
+            // prepared statement para insert
+            PreparedStatement stmt = cn.prepareStatement(sql);
+
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getEndereco());
+            stmt.setString(3, cliente.getCpf());
+            stmt.setString(4, String.valueOf(cliente.getSaldo()));
+            
+            // executa
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

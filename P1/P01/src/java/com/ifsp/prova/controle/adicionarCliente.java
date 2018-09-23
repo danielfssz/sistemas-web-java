@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -68,27 +69,33 @@ public class adicionarCliente extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
 
-        ClienteDAO dao = new ClienteDAO();
-        Cliente cliente = new Cliente();
-        List<Cliente> listaCliente = new ArrayList<Cliente>();
-        
-        String nome = request.getParameter("nome");
-        String endereco = request.getParameter("endereco");
-        String cpf = request.getParameter("cpf");
-        String vl_saldo = request.getParameter("vl_saldo");
-        
-        cliente.setNome(nome);
-        cliente.setEndereco(endereco);
-        cliente.setCpf(cpf);
-        cliente.setSaldo(Double.parseDouble(vl_saldo));
-        
-        dao.adicionar(cliente);
-        listaCliente = dao.lista();
-        
-        request.setAttribute("listaCliente", listaCliente);
-        
-        RequestDispatcher dispatcher = request.getRequestDispatcher("lista_clientes.jsp");
-        dispatcher.forward(request, response);
+        try {
+            ClienteDAO dao;
+            dao = new ClienteDAO();
+
+            Cliente cliente = new Cliente();
+            List<Cliente> listaCliente = new ArrayList<Cliente>();
+
+            String nome = request.getParameter("nome");
+            String endereco = request.getParameter("endereco");
+            String cpf = request.getParameter("cpf");
+            String vl_saldo = request.getParameter("vl_saldo");
+
+            cliente.setNome(nome);
+            cliente.setEndereco(endereco);
+            cliente.setCpf(cpf);
+            cliente.setSaldo(Double.parseDouble(vl_saldo));
+
+            dao.adicionar(cliente);
+            listaCliente = dao.lista();
+
+            request.setAttribute("listaCliente", listaCliente);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("lista_clientes.jsp");
+            dispatcher.forward(request, response);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(adicionarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
