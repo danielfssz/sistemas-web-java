@@ -66,23 +66,28 @@ public class adicionarCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
 
         ClienteDAO dao = new ClienteDAO();
         Cliente cliente = new Cliente();
         List<Cliente> listaCliente = new ArrayList<Cliente>();
+        
         String nome = request.getParameter("nome");
         String endereco = request.getParameter("endereco");
         String cpf = request.getParameter("cpf");
         String vl_saldo = request.getParameter("vl_saldo");
+        
         cliente.setNome(nome);
         cliente.setEndereco(endereco);
         cliente.setCpf(cpf);
         cliente.setSaldo(Double.parseDouble(vl_saldo));
+        
         dao.adicionar(cliente);
         listaCliente = dao.lista();
+        
         request.setAttribute("listaCliente", listaCliente);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("lista_alunos.jsp");
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("lista_clientes.jsp");
         dispatcher.forward(request, response);
     }
 
