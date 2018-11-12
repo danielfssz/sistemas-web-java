@@ -8,9 +8,6 @@
 <!DOCTYPE html>
 
 <jsp:include page="/menu.jsp"/>        
-
-
-
         <form id="frmLogin" action="cadastroUsuario" >
         <h1>Login</h1>
         <table>
@@ -35,4 +32,5 @@
         </table>
         
         </form>
+
 <jsp:include page="/footer.jsp"/>

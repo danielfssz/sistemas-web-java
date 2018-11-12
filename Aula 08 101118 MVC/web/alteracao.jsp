@@ -17,32 +17,28 @@
     </head>
     <body>
         <%
-                   String Login =request.getParameter("login");
-            String Senha =request.getParameter("senha");
-            String Nome =request.getParameter("nome");
-            int Id =Integer.parseInt(request.getParameter("id")) ;   
-              
-    
-            Usuario usu = (Usuario) request.getAttribute("usuarioB");
+            String Login = request.getParameter("login");
+            String Senha = request.getParameter("senha");
+            String Nome = request.getParameter("nome");
+            int Id = Integer.parseInt(request.getParameter("id"));
 
-             Usuario vo=new Usuario();
-             UsuarioDAO da = new UsuarioDAO();
-             
-                vo.setSenha(Senha);
-                vo.setLogin(Login);
-                vo.setId(Id);
-                vo.setNome(Nome);
-                da.alterar(vo);
-                
-          List<Usuario> usuarios=new ArrayList<Usuario>();
-        usuarios = da.Lista();
-        request.setAttribute("xuxa", usuarios);
-		
-        RequestDispatcher dispatcher=request.getRequestDispatcher("inicial.jsp");
-        dispatcher.forward(request, response);
-        
+            Usuario vo = new Usuario();
+            UsuarioDAO da = new UsuarioDAO();
 
-        
+            vo.setSenha(Senha);
+            vo.setLogin(Login);
+            vo.setId(Id);
+            vo.setNome(Nome);
+            da.alterar(vo);
+
+            List<Usuario> usuarios = new ArrayList<Usuario>();
+            usuarios = da.Lista();
+            request.setAttribute("xuxa", usuarios);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
+            dispatcher.forward(request, response);
+
+
         %>
     </body>
 </html>

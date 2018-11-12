@@ -55,7 +55,7 @@ table#alter tr.dif td {background:#EEEEEE;}
                                 <td name="nome"> <%= u.getNome() %> </td>
                                 <td name="login"><%= u.getLogin() %> </td>
                                 <td name="senha"><%= u.getSenha() %> </td>
-                                <td> <a href ="alterarUsuario?login=<%= u.getLogin()%>
+                                <td> <a href ="alterar.jsp?login=<%= u.getLogin()%>
                                                &nome=<%= u.getNome()%>
                                                &senha=<%= u.getSenha()%>
                                                &id=<%= u.getId()%>"
