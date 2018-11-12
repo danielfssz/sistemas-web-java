@@ -3,8 +3,8 @@
     Created on : Aug 25, 2018, 11:09:30 AM
     Author     : Elienai
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+ext/html" pageEncodi
+<%@page contentType="tng="UTF-8"%>
 <!DOCTYPE html>
 
 <jsp:include page="/menu.jsp" />
