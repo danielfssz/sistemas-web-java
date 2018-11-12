@@ -19,7 +19,7 @@ and open the template in the editor.
             int Id = Integer.parseInt(request.getParameter("id"));
         %>
 
-        <form id="frmLogin" action="alteracao.jsp" method="post" >
+        <form id="frmLogin" action="listarInicial" method="get" >
             <h1>Login</h1>
             <table>
                 <tr>

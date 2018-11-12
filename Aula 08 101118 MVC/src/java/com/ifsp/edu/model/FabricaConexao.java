@@ -24,7 +24,7 @@ public class FabricaConexao {
        // return DriverManager.getConnection("jdbc:mariadb://localhost:3306/localhost/cadastro", "root", "");
         	//Class.forName("com.mysql.jdbc.Driver");
         	Class.forName("com.mysql.jdbc.Driver");
-        	 Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", "123456");
+        	 Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", "root");
         			 //DriverManager.getConnection("jdbc:mariadb://localhost:3306/testj?user=diego2&password=diego");
                  //System.out.println("connected");  
                  return con;

@@ -45,6 +45,6 @@
                 <td colspan="2"> <input type="submit" value="Gravar"> </td>
             </tr>
         </table>
-    </form>
+
     </body>
 </html>
