@@ -1,0 +1,27 @@
+
+create database cadastro;
+
+use cadastro;
+
+
+
+create table veiculo
+(	id int primary key auto_increment,
+	placa varchar(10),
+	modelo varchar(50),
+	cor varchar(50),
+	ano int
+);
+
+create table usuario
+(	id int auto_increment primary key ,
+	nome varchar(30),
+    	login varchar(100),
+	senha varchar(100)
+);
+
+insert into usuario (nome,login,senha) values ('aluno','aluno','202cb962ac59075b964b07152d234b70');
+insert into veiculo (placa,modelo,cor,ano) values('DKG9939','Fiat Uno','Preto',2015);
+	
+
+	
