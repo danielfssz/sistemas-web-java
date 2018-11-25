@@ -97,4 +97,30 @@ public class VeiculoDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public Veiculo getById(Veiculo vecNull) {
+        Veiculo item = null;
+        ResultSet results;
+
+        try {
+            String sql = "Select * from veiculo where id='" + vecNull.getId() + "';";
+
+            PreparedStatement stmt = cn.prepareStatement(sql);
+            results = stmt.executeQuery();
+
+            while (results.next()) {
+                item = new Veiculo();
+                item.setId(Integer.parseInt(results.getObject("id").toString()));
+                item.setAno(Integer.parseInt(results.getObject("ano").toString()));
+                item.setModelo(results.getObject("modelo").toString());
+                item.setPlaca(results.getObject("placa").toString());
+                item.setCor(results.getObject("cor").toString());
+            }
+            return item;
+
+        } catch (SQLException e) {
+
+        }
+        return null;
+    }
 }

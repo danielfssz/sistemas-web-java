@@ -24,6 +24,14 @@
         <servlet-name>inserirVeiculo</servlet-name>
         <servlet-class>com.ifsp.edu.controller.inserirVeiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listaVeiculo</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.listaVeiculo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>alterarVeiculo</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.alterarVeiculo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroCliente</servlet-name>
         <url-pattern>/cadastroCliente</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>inserirVeiculo</servlet-name>
         <url-pattern>/inserirVeiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listaVeiculo</servlet-name>
+        <url-pattern>/listaVeiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>alterarVeiculo</servlet-name>
+        <url-pattern>/alterarVeiculo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

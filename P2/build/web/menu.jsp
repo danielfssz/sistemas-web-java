@@ -51,7 +51,7 @@
         <nav id="menu">
             <ul>
                 <li> <a href="veiculo_cadastro.jsp">Cadastro</a></li>
-                <li> <a href="veiculo_lista.jsp">Relatorios</a></li>
+                <li> <a href="./listaVeiculo">Relatorios</a></li>
                 <li> <a href="#">Sair</a></li>
             </ul>
         </nav>
