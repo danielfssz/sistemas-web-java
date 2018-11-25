@@ -48,24 +48,18 @@ public class login extends HttpServlet {
             UsuarioDAO dao = new UsuarioDAO();
 
             String login = request.getParameter("login");
-            // String senha =request.getParameter("senha");
             String senha = Criptografia.criptografar(request.getParameter("senha"));
-
             usuario = dao.getByLogin(login);
 
             PrintWriter out = response.getWriter();
             if (usuario != null) {
-
                 if (!usuario.getSenha().equals(senha)) {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
                     dispatcher.forward(request, response);
-
                 } else {
-                    HttpSession session = request.getSession();
-                    session.setAttribute("login", true);                    
+                    request.getSession().setAttribute("usuario", usuario);
                     RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
                     dispatcher.forward(request, response);
-
                 }
             } else {
 
