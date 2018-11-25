@@ -32,6 +32,10 @@
         <servlet-name>alterarVeiculo</servlet-name>
         <servlet-class>com.ifsp.edu.controller.alterarVeiculo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>deletarVeiculo</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.deletarVeiculo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroCliente</servlet-name>
         <url-pattern>/cadastroCliente</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>alterarVeiculo</servlet-name>
         <url-pattern>/alterarVeiculo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deletarVeiculo</servlet-name>
+        <url-pattern>/deletarVeiculo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

@@ -32,6 +32,7 @@
         <td>Cor</td>
         <td>Ano</td>
         <td>Alterar</td>
+        <td>Excluir</td>
     </tr>
 
     <c:forEach  items="${listaVeiculo}" var="veiculo">
@@ -42,7 +43,11 @@
             <td>${veiculo.placa}</td>
             <td>${veiculo.cor}</td>  
             <td>${veiculo.ano}</td>  
-            <td> <a href="alterarVeiculo?id=${veiculo.id}">Editar</a> 
+            <td> 
+                <a href="alterarVeiculo?id=${veiculo.id}">Editar</a> 
+            </td>
+            <td> 
+                <a href="deletarVeiculo?id=${veiculo.id}">Excluir</a> 
             </td>
 
         </tr>
