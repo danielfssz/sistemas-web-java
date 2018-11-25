@@ -6,8 +6,12 @@
 package com.ifsp.edu.controller;
 
 import com.ifsp.edu.model.Veiculo;
+import com.ifsp.edu.model.VeiculoDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -73,14 +77,27 @@ public class inserirVeiculo extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
 
-        Veiculo veiculo = new Veiculo();
-        veiculo.setModelo(request.getParameter("modelo"));
-        veiculo.setAno(Integer.parseInt(request.getParameter("ano")));
-        veiculo.setCor(request.getParameter("cor"));
-        veiculo.setPlaca(request.getParameter("placa"));
+        try {
+            Veiculo veiculo = new Veiculo();
+            veiculo.setModelo(request.getParameter("modelo"));
+            veiculo.setAno(Integer.parseInt(request.getParameter("ano")));
+            veiculo.setCor(request.getParameter("cor"));
+            veiculo.setPlaca(request.getParameter("placa"));
 
-        ClienteDAO dao = new ClienteDAO();
-        dao.adicionar(cliente);
+            VeiculoDAO dao = new VeiculoDAO();
+            dao.adicionar(veiculo);
+
+            List<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
+            listaVeiculo = dao.listar();
+            request.setAttribute("listaVeiculo", listaVeiculo);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("veiculo_lista.jsp");
+            dispatcher.forward(request, response);
+
+        } catch (Exception e) {
+
+        }
+
     }
 
     /**

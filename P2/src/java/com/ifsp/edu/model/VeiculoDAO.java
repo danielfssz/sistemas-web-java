@@ -2,7 +2,10 @@ package com.ifsp.edu.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VeiculoDAO {
 
@@ -26,6 +29,67 @@ public class VeiculoDAO {
             stmt.setString(3, veiculo.getCor());
             stmt.setString(4, veiculo.getAno().toString());
 
+            // executa
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void alterar(Veiculo veiculo) {
+        String sql = "update veiculo set placa=?,modelo=?,cor=?, ano=? where id=?";
+
+        try {
+            // prepared statement para insert
+            PreparedStatement stmt = cn.prepareStatement(sql);
+
+            stmt.setString(1, veiculo.getPlaca());
+            stmt.setString(2, veiculo.getModelo());
+            stmt.setString(3, veiculo.getCor());
+            stmt.setString(4, veiculo.getAno().toString());
+            stmt.setString(5, veiculo.getId().toString());
+            // executa
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public List<Veiculo> listar() {
+        List<Veiculo> lista = new ArrayList<Veiculo>();
+        ResultSet results;
+        try {
+            String sql = "Select * from cadastro;";
+
+            PreparedStatement stmt = cn.prepareStatement(sql);
+            results = stmt.executeQuery();
+
+            while (results.next()) {
+                Veiculo veiculo = new Veiculo();
+                veiculo.setId(Integer.parseInt(results.getObject("id").toString()));
+                veiculo.setCor(results.getObject("cor").toString());
+                veiculo.setModelo(results.getObject("modelo").toString());
+                veiculo.setPlaca(results.getObject("placa").toString());
+                veiculo.setAno(Integer.parseInt(results.getObject("ano").toString()));
+
+                lista.add(veiculo);
+            }
+            return lista;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void excluir(String id) {
+        try {
+            String sql = "delete from veiculo where id = ?;";
+
+            // prepared statement para insert
+            PreparedStatement stmt = cn.prepareStatement(sql);
+
+            stmt.setString(1, id);
             // executa
             stmt.execute();
             stmt.close();
