@@ -18,7 +18,7 @@ public class VeiculoDAO {
     public void adicionar(Veiculo veiculo) {
         String sql = "insert into veiculo "
                 + "(placa, modelo, cor, ano) "
-                + "values (?,?,?,?,?)";
+                + "values (?,?,?,?)";
 
         try {
             // prepared statement para insert
@@ -61,7 +61,7 @@ public class VeiculoDAO {
         List<Veiculo> lista = new ArrayList<Veiculo>();
         ResultSet results;
         try {
-            String sql = "Select * from cadastro;";
+            String sql = "select * from veiculo;";
 
             PreparedStatement stmt = cn.prepareStatement(sql);
             results = stmt.executeQuery();

@@ -31,7 +31,7 @@ public class Veiculo {
         return modelo;
     }
 
-    public void setModelo(String model) {
+    public void setModelo(String modelo) {
         this.modelo = modelo;
     }
 
