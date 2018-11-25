@@ -15,45 +15,45 @@
     </head>
     <body>
 
-<style>
-#menu ul {
-width: 100%;
-height: auto;
-padding: 10px;
-margin: 0;
-background-color: #069;
-list-style: none; 
-/* remove os pontinhos antes dos itens */
-}
-#menu ul li {
-display: inline; 
-/* alinha os itens na horizontal */
-}
-#menu ul li a {
-padding: 2px 10px;
-display: inline-block;
-margin-left: 15px;
-background-color: #069;
-color: #fff;
-text-decoration: none; 
-/* remove o sublinhado do link */
+        <style>
+            #menu ul {
+                width: 100%;
+                height: auto;
+                padding: 10px;
+                margin: 0;
+                background-color: #069;
+                list-style: none; 
+                /* remove os pontinhos antes dos itens */
+            }
+            #menu ul li {
+                display: inline; 
+                /* alinha os itens na horizontal */
+            }
+            #menu ul li a {
+                padding: 2px 10px;
+                display: inline-block;
+                margin-left: 15px;
+                background-color: #069;
+                color: #fff;
+                text-decoration: none; 
+                /* remove o sublinhado do link */
 
-border-bottom: 3px solid #069;
-}
-#menu ul li a:hover { 
-/* efeito para quando passar o mouse 
-   sobre o item do menu */
-color: #f5f5f5;
-border-bottom: 3px solid #f5f5f5;
-}
-</style>
+                border-bottom: 3px solid #069;
+            }
+            #menu ul li a:hover { 
+                /* efeito para quando passar o mouse 
+                   sobre o item do menu */
+                color: #f5f5f5;
+                border-bottom: 3px solid #f5f5f5;
+            }
+        </style>
 
-<nav id="menu">
-<ul>
-<li> <a href="veiculo_cadastro.jsp">Cadastro</a></li>
-<li> <a href="veiculo_lista.jsp">Relatorios</a></li>
-<li> <a href="#">Sair</a></li>
-</ul>
-</nav>
-	
+        <nav id="menu">
+            <ul>
+                <li> <a href="veiculo_cadastro.jsp">Cadastro</a></li>
+                <li> <a href="veiculo_lista.jsp">Relatorios</a></li>
+                <li> <a href="#">Sair</a></li>
+            </ul>
+        </nav>
+
 

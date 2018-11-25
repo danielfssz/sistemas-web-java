@@ -17,6 +17,7 @@ import com.ifsp.edu.model.Usuario;
 import com.ifsp.edu.model.UsuarioDAO;
 import java.util.ArrayList;
 import javax.jms.Session;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class login
@@ -61,6 +62,8 @@ public class login extends HttpServlet {
                     dispatcher.forward(request, response);
 
                 } else {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("login", true);
 
                     RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
                     dispatcher.forward(request, response);
@@ -79,10 +82,6 @@ public class login extends HttpServlet {
                 out.println("</html>");
 
             }
-
-            //out.println("<a href=\"login\">Formulario Cadastro</a>");
-            //out.println("</body>");
-            //out.println("</html>"); 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException ex) {
