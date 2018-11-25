@@ -27,12 +27,12 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public String getModel() {
-        return model;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setModelo(String model) {
+        this.modelo = modelo;
     }
 
     public String getCor() {
@@ -53,7 +53,7 @@ public class Veiculo {
 
     private Integer id;
     private String placa;
-    private String model;
+    private String modelo;
     private String cor;
     private Integer ano;
 

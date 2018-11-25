@@ -5,6 +5,7 @@
  */
 package com.ifsp.edu.controller;
 
+import com.ifsp.edu.model.Veiculo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -73,12 +74,10 @@ public class inserirVeiculo extends HttpServlet {
         //processRequest(request, response);
 
         Veiculo veiculo = new Veiculo();
-        cliente.setCep(request.getParameter("cep"));
-        cliente.setEmail(request.getParameter("email"));
-        cliente.setEndereco(request.getParameter("endereco"));
-        cliente.setTelefone(request.getParameter("telefone"));
-        cliente.setNome(request.getParameter("nome"));
-        cliente.setEstado(request.getParameter("cbEstado"));
+        veiculo.setModelo(request.getParameter("modelo"));
+        veiculo.setAno(Integer.parseInt(request.getParameter("ano")));
+        veiculo.setCor(request.getParameter("cor"));
+        veiculo.setPlaca(request.getParameter("placa"));
 
         ClienteDAO dao = new ClienteDAO();
         dao.adicionar(cliente);

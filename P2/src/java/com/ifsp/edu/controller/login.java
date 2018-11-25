@@ -57,14 +57,12 @@ public class login extends HttpServlet {
             if (usuario != null) {
 
                 if (!usuario.getSenha().equals(senha)) {
-
                     RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
                     dispatcher.forward(request, response);
 
                 } else {
                     HttpSession session = request.getSession();
-                    session.setAttribute("login", true);
-
+                    session.setAttribute("login", true);                    
                     RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
                     dispatcher.forward(request, response);
 
