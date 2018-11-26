@@ -2,3 +2,4 @@ ir na pasta source
 adicionar uma pasta META-INF
 na pasta META-INF 
 adicionar um arquivo de "unidade de persistencia" (persistence.xml)
+olhar os comentarios do xml para entender oq é oq
