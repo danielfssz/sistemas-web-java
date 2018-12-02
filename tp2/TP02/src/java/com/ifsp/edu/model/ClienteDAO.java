@@ -31,8 +31,8 @@ public class ClienteDAO implements IClienteDAO {
     @Override
     public void adicionar(Cliente cliente) {
         String sql = "insert into cliente "
-                + "(nome,endereco,cep, email, telefone) "
-                + "values (?,?,?,?,?)";
+                + "(nome,endereco,cep, email, telefone, estado) "
+                + "values (?,?,?,?,?, ?)";
 
         try {
             // prepared statement para insert
@@ -40,9 +40,10 @@ public class ClienteDAO implements IClienteDAO {
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getEndereco());
-            stmt.setString(2, cliente.getCEP());
-            stmt.setString(2, cliente.getEmail());
-            stmt.setString(2, cliente.getTelefone());
+            stmt.setString(3, cliente.getCEP());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getTelefone());
+            stmt.setString(6, cliente.getEstado().getSigla());
 
             // executa
             stmt.execute();
@@ -64,8 +65,9 @@ public class ClienteDAO implements IClienteDAO {
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getEndereco());
             stmt.setString(3, cliente.getCEP());
-            stmt.setString(3, cliente.getEmail());
-            stmt.setString(3, cliente.getTelefone());
+            stmt.setString(4, cliente.getEmail());
+            stmt.setString(5, cliente.getTelefone());
+            stmt.setString(6, cliente.getEstado().getSigla());
 
             // executa
             stmt.execute();
@@ -94,6 +96,9 @@ public class ClienteDAO implements IClienteDAO {
                 item.setCEP(results.getObject("cep").toString());
                 item.setEmail(results.getObject("email").toString());
                 item.setTelefone(results.getObject("telefone").toString());
+                Estado e = new Estado();
+                e.setSigla(results.getObject("estado").toString());
+                item.setEstado(e);
 
             }
 

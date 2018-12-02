@@ -10,48 +10,38 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<form id="frmCadCliente"  method="get" action="" >
+<form id="frmCadCliente"  method="post" action="cadastroCliente" >
     <table>
 
         <tr>
             <td> Nome</td>
-            <td> <input type="text" name="nome" id="nome_id">  </td>
+            <td> <input type="text" name="nome" id="nome">  </td>
         </tr>
 
         <tr>
             <td> Endereco</td>
-            <td> <input type="text" name="endereco" id="endereco_id">  </td>             
+            <td> <input type="text" name="endereco" id="endereco">  </td>             
         </tr>
 
         <tr>
             <td> Cep</td>
-            <td> <input type="text" name="cep" id="cep_id">  </td>            
+            <td> <input type="text" name="cep" id="cep">  </td>            
         </tr>
 
         <tr>
             <td> Email</td>
-            <td> <input type="text" name="email" id="email_id">  </td>              
+            <td> <input type="text" name="email" id="email">  </td>              
         </tr>
 
         <tr>
             <td> Telefone</td>
-            <td> <input type="text" name="telefone" id="telefone_id">  </td>              
+            <td> <input type="text" name="telefone" id="telefone">  </td>              
         </tr>   
-
-        <tr>
-            <td> Sexo </td>
-            <td>
-                <select name="cbSexo">
-                    <option value="M"> Masculino </option>);
-                    <option value="F"> Feminino </option>);                        
-                </select>
-            </td>                 
-        </tr>
 
         <tr>
             <td> Estado </td>
             <td>
-                <select name="cbEstado">
+                <select name="estado" id="estado">
                     <%  EstadoDAO dao = new EstadoDAO();
                         List<Estado> list = dao.Lista();
                         Estado est;

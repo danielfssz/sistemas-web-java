@@ -5,9 +5,11 @@
  */
 package com.ifsp.edu.controller;
 
-
+import com.ifsp.edu.model.Cliente;
+import com.ifsp.edu.model.ClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +60,25 @@ public class cadastroCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            Cliente cliente = new Cliente();
+            cliente.setNome(request.getParameter("nome"));
+            cliente.setEndereco(request.getParameter("endereco"));
+            cliente.setCEP(request.getParameter("cep"));
+            cliente.setEmail(request.getParameter("email"));            
+            cliente.setTelefone(request.getParameter("telefone"));
+            cliente.setTelefone(request.getParameter("estado"));
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.adicionar(cliente);
+            
+            RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
+            dispatcher.forward(request, response);
+
+        } catch (ClassNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
+
     }
 
     /**
