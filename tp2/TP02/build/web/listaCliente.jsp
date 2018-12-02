@@ -51,14 +51,11 @@
                 </form>                                
             </td>
             <td> 
-                exlcuir
-            </td>
-
-            <%--
-            <td> <a href="alterarUsuario?login=${usuario.login}&nome=${usuario.nome}
-                    &senha=${usuario.senha}&id=${usuario.id}">Editar</a> 
-            </td> --%>
-
+                <form id="alterarCliente"  get="post" action="alterarCliente">
+                    <input type="text" name="id" id="id" hidden value="${cliente.id}">
+                    <input type="submit" value="Excluir"> 
+                </form>     
+            </td>            
         </tr>
     </c:forEach>
 
