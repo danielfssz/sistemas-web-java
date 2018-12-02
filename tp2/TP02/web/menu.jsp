@@ -52,13 +52,13 @@
     </c:if>    
     --%>
     
-        
+        <%-- 
   <c:choose>
     <c:when test="${empty usuario}"> <c:redirect url="index.html"/>  </c:when>
     <c:otherwise>Bem vindo, + ${usuario} </c:otherwise>
   </c:choose>
     
-    
+    --%>
 
 <style>
 #menu ul {
