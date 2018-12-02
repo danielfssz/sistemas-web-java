@@ -21,7 +21,7 @@ create table usuario
 (	id int primary key auto_increment,
 	nome varchar(30),
     login varchar(100),
-	senha varchar(10)
+	senha varchar(100)
 );
 
 insert into usuario (nome,login,senha) values ('aluno','aluno','202cb962ac59075b964b07152d234b70');
