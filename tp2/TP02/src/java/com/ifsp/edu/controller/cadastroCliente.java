@@ -6,8 +6,10 @@
 package com.ifsp.edu.controller;
 
 import com.ifsp.edu.model.Cliente;
-import com.ifsp.edu.model.ClienteDAO;
+import com.ifsp.edu.model.DAOFactory;
+import com.ifsp.edu.model.IClienteDAO;
 import com.ifsp.edu.model.Estado;
+import com.ifsp.edu.model.IClienteDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -70,14 +72,12 @@ public class cadastroCliente extends HttpServlet {
             cliente.setCEP(request.getParameter("cep"));
             cliente.setEmail(request.getParameter("email"));
             cliente.setTelefone(request.getParameter("telefone"));
+            cliente.setEstado(request.getParameter("estado"));
 
-            Estado e = new Estado();
-            e.setSigla(request.getParameter("estado").toString());
-            cliente.setEstado(e);
 
-            ClienteDAO dao = new ClienteDAO();
+            IClienteDAO dao =  DAOFactory.createClienteDAO();
             dao.adicionar(cliente);
-            
+
             List<Cliente> listaCliente = new ArrayList<Cliente>();
             listaCliente = dao.listar();
             request.setAttribute("listaCliente", listaCliente);

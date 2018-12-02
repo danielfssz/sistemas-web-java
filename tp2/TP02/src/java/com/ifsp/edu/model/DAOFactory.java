@@ -15,4 +15,9 @@ public class DAOFactory {
 
         return new UsuarioDAOTX();
     }
+
+    public static IClienteDAO createClienteDAO() throws ClassNotFoundException {
+
+        return new ClienteDAO();
+    }
 }

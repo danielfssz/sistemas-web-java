@@ -30,7 +30,15 @@ public class Cliente {
     @Column
     String Telefone;
     @Transient
-    Estado estado;
+    String estado;
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public Integer getId() {
         return Id;
@@ -80,12 +88,6 @@ public class Cliente {
         this.Telefone = Telefone;
     }
 
-    public Estado getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Estado estado) {
-        this.estado = estado;
-    }
+    
 
 }

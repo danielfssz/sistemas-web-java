@@ -43,7 +43,7 @@ public class ClienteDAO implements IClienteDAO {
             stmt.setString(3, cliente.getCEP());
             stmt.setString(4, cliente.getEmail());
             stmt.setString(5, cliente.getTelefone());
-            stmt.setString(6, cliente.getEstado().getSigla());
+            stmt.setString(6, cliente.getEstado());
 
             // executa
             stmt.execute();
@@ -67,7 +67,7 @@ public class ClienteDAO implements IClienteDAO {
             stmt.setString(3, cliente.getCEP());
             stmt.setString(4, cliente.getEmail());
             stmt.setString(5, cliente.getTelefone());
-            stmt.setString(6, cliente.getEstado().getSigla());
+            stmt.setString(6, cliente.getEstado());
 
             // executa
             stmt.execute();
@@ -96,10 +96,7 @@ public class ClienteDAO implements IClienteDAO {
                 item.setCEP(results.getObject("cep").toString());
                 item.setEmail(results.getObject("email").toString());
                 item.setTelefone(results.getObject("telefone").toString());
-                
-                Estado e = new Estado();
-                e.setSigla(results.getObject("estado").toString());
-                item.setEstado(e);
+                item.setEstado(results.getObject("estado").toString());
             }
             return item;
 
@@ -126,10 +123,7 @@ public class ClienteDAO implements IClienteDAO {
                 item.setCEP(results.getObject("cep").toString());
                 item.setEmail(results.getObject("email").toString());
                 item.setTelefone(results.getObject("telefone").toString());
-                
-                Estado e = new Estado();
-                e.setSigla(results.getObject("estado").toString());
-                item.setEstado(e);
+                item.setEstado(results.getObject("estado").toString());
                 
                 lista.add(item);
             }
