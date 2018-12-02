@@ -20,6 +20,10 @@
         <servlet-name>listarInicial</servlet-name>
         <servlet-class>com.ifsp.edu.controller.listarInicial</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>excluirCliente</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.excluirCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroCliente</servlet-name>
         <url-pattern>/cadastroCliente</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>listarInicial</servlet-name>
         <url-pattern>/listarInicial</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>excluirCliente</servlet-name>
+        <url-pattern>/excluirCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

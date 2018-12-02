@@ -30,6 +30,8 @@
         <td>Email</td>
         <td>Telefone</td>
         <td>Estado</td>
+        <td>Excluir</td>
+        <td>Alterar</td>
     </tr>
 
     <c:forEach  items="${listaCliente}" var="cliente">
@@ -42,6 +44,15 @@
             <td>${cliente.email}</td>
             <td>${cliente.telefone}</td>
             <td>${cliente.estado}</td>
+            <td> 
+                <form id="excluirCliente"  get="post" action="excluirCliente">
+                    <input type="text" name="id" id="id" hidden value="${cliente.id}">
+                    <input type="submit" value="Excluir"> 
+                </form>                                
+            </td>
+            <td> 
+                exlcuir
+            </td>
 
             <%--
             <td> <a href="alterarUsuario?login=${usuario.login}&nome=${usuario.nome}
