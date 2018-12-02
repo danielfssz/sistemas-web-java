@@ -11,23 +11,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-/**
- *
- * @author Elienai
- */
-public class UsuarioDAOHB implements IUsuarioDAO {
+public class ClienteDAOHB implements IClienteDAO {
 
-    private static UsuarioDAOHB instance;
+    private static ClienteDAOHB instance;
     protected EntityManager entityManager;
 
-    public static UsuarioDAOHB getInstance() {
+    public static ClienteDAOHB getInstance() {
         if (instance == null) {
-            instance = new UsuarioDAOHB();
+            instance = new ClienteDAOHB();
         }
         return instance;
     }
 
-    public UsuarioDAOHB() {
+    public ClienteDAOHB() {
         entityManager = getEntityManager();
     }
 
@@ -41,11 +37,11 @@ public class UsuarioDAOHB implements IUsuarioDAO {
     }
 
     @Override
-    public void adicionar(Usuario usuario) {
+    public void adicionar(Cliente cliente) {
 
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(usuario);
+            entityManager.persist(cliente);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -55,10 +51,10 @@ public class UsuarioDAOHB implements IUsuarioDAO {
     }
 
     @Override
-    public void alterar(Usuario usuario) {
+    public void alterar(Cliente cliente) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(usuario);
+            entityManager.merge(cliente);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -67,30 +63,30 @@ public class UsuarioDAOHB implements IUsuarioDAO {
     }
 
     @Override
-    public Usuario getByLogin(String login) throws SQLException {
-        return entityManager.find(Usuario.class, login);
+    public Cliente getById(Cliente cliente) throws SQLException {
+        return entityManager.find(Cliente.class, cliente.getId());
     }
 
     @Override
-    public List<Usuario> listar() {
-        return entityManager.createQuery("FROM " + Usuario.class.getName()).getResultList();
+    public List<Cliente> listar() {
+        return entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
     }
 
     @Override
-    public void excluir(String login) {
+    public void excluir(Cliente cliente) {
         try {
-            Usuario u = getByLogin(login);
-            remove(u);
+            Cliente c = getById(cliente);
+            remove(c);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    public void remove(Usuario u) {
+    public void remove(Cliente c) {
         try {
             entityManager.getTransaction().begin();
-            u = entityManager.find(Usuario.class, u.getLogin());
-            entityManager.remove(u);
+            c = entityManager.find(Cliente.class, c.getId());
+            entityManager.remove(c);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
