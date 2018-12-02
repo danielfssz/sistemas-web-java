@@ -28,6 +28,10 @@
         <servlet-name>alterarCliente</servlet-name>
         <servlet-class>com.ifsp.edu.controller.alterarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>atualizarCliente</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.atualizarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>cadastroCliente</servlet-name>
         <url-pattern>/cadastroCliente</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>alterarCliente</servlet-name>
         <url-pattern>/alterarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>atualizarCliente</servlet-name>
+        <url-pattern>/atualizarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

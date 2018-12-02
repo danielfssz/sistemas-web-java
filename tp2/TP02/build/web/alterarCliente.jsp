@@ -11,12 +11,16 @@
 <style type="text/css">
     table#alter td {background:#FFFFCC;}
     table#alter tr.dif td {background:#EEEEEE;}
+    .alterarCliente {
+        margin-left: auto;
+    }
 </style>
 
 
 <jsp:useBean id="cliente" scope="request" class="com.ifsp.edu.model.Cliente"/>
 
-<form id="alterarCliente" action="alterarCliente" method="post">
+<form id="atualizarCliente" action="atualizarCliente" method="post">
+    <input type="text" id="id" name="id" hidden value="${cliente.id}">
     <h4>Nome</h4>
     <input type="text" id="nome" name="nome" value="${cliente.nome}">
     <br>
@@ -39,6 +43,7 @@
     <br>
     <h4>Estado</h4>
     <input type="text" id="telefone" name="estado" value="${cliente.estado}">
+    <br>
     <input type="submit" value="Salvar">
 </form>
 

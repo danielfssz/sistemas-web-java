@@ -55,19 +55,20 @@ public class ClienteDAO implements IClienteDAO {
 
     @Override
     public void alterar(Cliente cliente) {
-        String sql = "update cliente set nome=?,endereco=?,cep=?,email=?, telefone=? where id=?";
+        String sql = "update cliente set nome=?,endereco=?,cep=?,email=?, telefone=?, estado=? where id=?";
 
         try {
             // prepared statement para insert
             PreparedStatement stmt = cn.prepareStatement(sql);
 
-            stmt.setInt(4, cliente.getId());
+            
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getEndereco());
             stmt.setString(3, cliente.getCEP());
             stmt.setString(4, cliente.getEmail());
             stmt.setString(5, cliente.getTelefone());
             stmt.setString(6, cliente.getEstado());
+            stmt.setString(7, cliente.getId().toString());
 
             // executa
             stmt.execute();

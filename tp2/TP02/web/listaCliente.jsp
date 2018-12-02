@@ -53,7 +53,7 @@
             <td> 
                 <form id="alterarCliente"  get="post" action="alterarCliente">
                     <input type="text" name="id" id="id" hidden value="${cliente.id}">
-                    <input type="submit" value="Excluir"> 
+                    <input type="submit" value="Alterar"> 
                 </form>     
             </td>            
         </tr>
