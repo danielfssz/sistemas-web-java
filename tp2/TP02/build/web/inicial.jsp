@@ -50,7 +50,7 @@ table#alter tr.dif td {background:#EEEEEE;}
                         <td>Alterar</td>
                 </tr>
                 
-                <c:forEach  items="${xuxa}" var="usuario">
+                <c:forEach  items="${listaCliente}" var="cliente">
                     <tr>
 
                             <td>${usuario.id}</td>

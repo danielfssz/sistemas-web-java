@@ -7,8 +7,11 @@ package com.ifsp.edu.controller;
 
 import com.ifsp.edu.model.Cliente;
 import com.ifsp.edu.model.ClienteDAO;
+import com.ifsp.edu.model.Estado;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -65,14 +68,21 @@ public class cadastroCliente extends HttpServlet {
             cliente.setNome(request.getParameter("nome"));
             cliente.setEndereco(request.getParameter("endereco"));
             cliente.setCEP(request.getParameter("cep"));
-            cliente.setEmail(request.getParameter("email"));            
+            cliente.setEmail(request.getParameter("email"));
             cliente.setTelefone(request.getParameter("telefone"));
-            cliente.setTelefone(request.getParameter("estado"));
+
+            Estado e = new Estado();
+            e.setSigla(request.getParameter("estado").toString());
+            cliente.setEstado(e);
 
             ClienteDAO dao = new ClienteDAO();
             dao.adicionar(cliente);
             
-            RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
+            List<Cliente> listaCliente = new ArrayList<Cliente>();
+            listaCliente = dao.listar();
+            request.setAttribute("listaCliente", listaCliente);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("listaCliente.jsp");
             dispatcher.forward(request, response);
 
         } catch (ClassNotFoundException ex) {

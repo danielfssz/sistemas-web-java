@@ -96,12 +96,11 @@ public class ClienteDAO implements IClienteDAO {
                 item.setCEP(results.getObject("cep").toString());
                 item.setEmail(results.getObject("email").toString());
                 item.setTelefone(results.getObject("telefone").toString());
+                
                 Estado e = new Estado();
                 e.setSigla(results.getObject("estado").toString());
                 item.setEstado(e);
-
             }
-
             return item;
 
         } catch (SQLException e) {
@@ -127,9 +126,12 @@ public class ClienteDAO implements IClienteDAO {
                 item.setCEP(results.getObject("cep").toString());
                 item.setEmail(results.getObject("email").toString());
                 item.setTelefone(results.getObject("telefone").toString());
-
+                
+                Estado e = new Estado();
+                e.setSigla(results.getObject("estado").toString());
+                item.setEstado(e);
+                
                 lista.add(item);
-
             }
 
             return lista;
