@@ -29,7 +29,7 @@ public class Cliente {
     String Email;
     @Column
     String Telefone;
-    @Transient
+    @Column
     String estado;
 
     public String getEstado() {

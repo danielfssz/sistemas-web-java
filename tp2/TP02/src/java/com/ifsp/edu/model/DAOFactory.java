@@ -18,6 +18,6 @@ public class DAOFactory {
 
     public static IClienteDAO createClienteDAO() throws ClassNotFoundException {
 
-        return new ClienteDAO();
+        return new ClienteDAOHB();
     }
 }

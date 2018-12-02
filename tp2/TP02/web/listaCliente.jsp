@@ -1,7 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.List"%>
 <%@page import="com.ifsp.edu.model.Cliente"%>
-<%@page import="com.ifsp.edu.model.Estado"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,7 +15,7 @@
 
 
 <jsp:useBean id="usuario" scope="request" class="com.ifsp.edu.model.Cliente"/>
-<jsp:useBean id="estado" scope="request" class="com.ifsp.edu.model.Estado"/>
+
 
 <br>
 <br>
@@ -41,7 +41,7 @@
             <td>${cliente.CEP}</td>
             <td>${cliente.email}</td>
             <td>${cliente.telefone}</td>
-            <td>${cliente.estado.sigla}</td>
+            <td>${cliente.estado}</td>
 
             <%--
             <td> <a href="alterarUsuario?login=${usuario.login}&nome=${usuario.nome}
