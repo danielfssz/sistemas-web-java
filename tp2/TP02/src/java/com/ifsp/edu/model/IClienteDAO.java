@@ -18,9 +18,9 @@ public interface IClienteDAO {
 
     public void alterar(Cliente cliente);
 
-    public void excluir(String login);
+    public void excluir(Cliente cliente);
 
-    public Usuario getById(Integer id) throws SQLException;
+    public Cliente getById(Cliente cliente) throws SQLException;
 
     public List<Cliente> listar();
 
