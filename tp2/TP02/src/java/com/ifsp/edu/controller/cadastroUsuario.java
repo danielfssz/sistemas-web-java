@@ -46,7 +46,7 @@ public class cadastroUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cadastroUsuario</title>");            
+            out.println("<title>Servlet cadastroUsuario</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet cadastroUsuario at " + request.getContextPath() + "</h1>");
@@ -67,45 +67,39 @@ public class cadastroUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-Usuario usuario = new Usuario();
 
+        Usuario usuario = new Usuario();
 
-try {
-	//UsuarioDAO dao = new UsuarioDAO();
-        //IUsuarioDAO dao=new UsuarioDAOHB();
-        IUsuarioDAO dao = DAOFactory.createUsuarioDAO();
-        
-        List<Usuario> usuarios=new ArrayList<Usuario>();
-        
-        String login=request.getParameter("login");
-        String senha=request.getParameter("senha");
-        String nome=request.getParameter("nome");
-        
-	usuario.setLogin(login);
-        usuario.setNome(nome);
-        usuario.setSenha(senha);
-        
-        dao.adicionar(usuario);
-        
-        usuarios = dao.listar();
-        request.setAttribute("xuxa", usuarios);
-		
-        RequestDispatcher dispatcher=request.getRequestDispatcher("inicial.jsp");
-        dispatcher.forward(request, response);
+        try {
+            //UsuarioDAO dao = new UsuarioDAO();
+            //IUsuarioDAO dao=new UsuarioDAOHB();
+            IUsuarioDAO dao = DAOFactory.createUsuarioDAO();
 
-        
-        
-	//out.println("<a href=\"login\">Formulario Cadastro</a>");
-	//out.println("</body>");
-	//out.println("</html>"); 
+            List<Usuario> usuarios = new ArrayList<Usuario>();
 
-    
+            String login = request.getParameter("login");
+            String senha = request.getParameter("senha");
+            String nome = request.getParameter("nome");
 
-} catch (Exception e) {
-    throw new RuntimeException(e);
-}        
-        
+            usuario.setLogin(login);
+            usuario.setNome(nome);
+            usuario.setSenha(senha);
+
+            dao.adicionar(usuario);
+
+            usuarios = dao.listar();
+            request.setAttribute("xuxa", usuarios);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("inicial.jsp");
+            dispatcher.forward(request, response);
+
+            //out.println("<a href=\"login\">Formulario Cadastro</a>");
+            //out.println("</body>");
+            //out.println("</html>"); 
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
         processRequest(request, response);
     }
 

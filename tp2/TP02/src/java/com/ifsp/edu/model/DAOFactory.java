@@ -5,15 +5,14 @@
  */
 package com.ifsp.edu.model;
 
-
 /**
  *
  * @author Elienai
  */
 public class DAOFactory {
-    
-        public static IUsuarioDAO createUsuarioDAO() throws ClassNotFoundException {
-        
-            return new UsuarioDAOTX();        
+
+    public static IUsuarioDAO createUsuarioDAO() throws ClassNotFoundException {
+
+        return new UsuarioDAOTX();
     }
 }

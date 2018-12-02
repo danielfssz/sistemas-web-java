@@ -17,45 +17,41 @@ import java.util.List;
  * @author Elienai
  */
 public class EstadoDAO {
-    
-   private Connection cn;
-    
-    public EstadoDAO() throws ClassNotFoundException{
-        cn=new FabricaConexao().getConnection();
+
+    private Connection cn;
+
+    public EstadoDAO() throws ClassNotFoundException {
+        cn = new FabricaConexao().getConnection();
     }
-    
-    
-       
-        public List<Estado> Lista()  {
-            //List<Usuario> lista =new ArrayList<Usuario>();
-            List<Estado> lista=new ArrayList<Estado>();
-            //ResultSet results;
-            ResultSet cursor;
-            try {
-                String sql="Select * from estado;";
 
-                //PreparedStatement stmt = cn.prepareStatement(sql);    
-                PreparedStatement stmt = cn.prepareStatement(sql);
+    public List<Estado> Lista() {
+        //List<Usuario> lista =new ArrayList<Usuario>();
+        List<Estado> lista = new ArrayList<Estado>();
+        //ResultSet results;
+        ResultSet cursor;
+        try {
+            String sql = "Select * from estado;";
 
-                 cursor = stmt.executeQuery();
+            //PreparedStatement stmt = cn.prepareStatement(sql);    
+            PreparedStatement stmt = cn.prepareStatement(sql);
 
-                 while (cursor.next())
-                 {       Estado item=new Estado();
+            cursor = stmt.executeQuery();
 
-                         item.setId(Integer.parseInt(cursor.getObject("id").toString()));
-                         item.setDescricao(cursor.getObject("descricao").toString());
-                         item.setSigla(cursor.getObject("sigla").toString());                                                 
-                         lista.add(item);
+            while (cursor.next()) {
+                Estado item = new Estado();
 
-                 }
-    				    				    			
-    		return lista;
-    		
-    	}
-    	catch(SQLException e) {
-    		throw new RuntimeException(e);
-    	}
-    	}
-        
-    
+                item.setId(Integer.parseInt(cursor.getObject("id").toString()));
+                item.setDescricao(cursor.getObject("descricao").toString());
+                item.setSigla(cursor.getObject("sigla").toString());
+                lista.add(item);
+
+            }
+
+            return lista;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

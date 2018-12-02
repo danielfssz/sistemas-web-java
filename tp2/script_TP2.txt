@@ -1,7 +1,7 @@
 
-create database cadatro;
+create database cadastro;
 
-use cadatro;
+use cadastro;
 
 
 
@@ -27,4 +27,10 @@ create table usuario
 insert into usuario (nome,login,senha) values ('aluno','aluno','202cb962ac59075b964b07152d234b70');
 	
 
-	
+create table estado(
+	id int primary key auto_increment,
+	descricao varchar(50),
+    sigla varchar(10)
+);
+
+insert into estado (descricao, sigla) values('São Paulo','SP');
