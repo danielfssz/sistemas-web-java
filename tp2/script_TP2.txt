@@ -1,0 +1,30 @@
+
+create database cadatro;
+
+use cadatro;
+
+
+
+create table cliente
+(	id int primary key auto_increment,
+	nome varchar(30),
+    	endereco varchar(100),
+    	cep char(10),
+	email varchar(100),
+	telefone char(12),
+	estado char(2)
+
+);
+
+
+create table usuario
+(	id int primary key auto_increment,
+	nome varchar(30),
+    login varchar(100),
+	senha varchar(10)
+);
+
+insert into usuario (nome,login,senha) values ('aluno','aluno','202cb962ac59075b964b07152d234b70');
+	
+
+	
