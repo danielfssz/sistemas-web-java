@@ -96,9 +96,10 @@ public class alterarVeiculo extends HttpServlet {
             veiculo.setAno(Integer.parseInt(request.getParameter("ano")));
             veiculo.setCor(request.getParameter("cor"));
             veiculo.setPlaca(request.getParameter("placa"));
+            veiculo.setId(Integer.parseInt(request.getParameter("id")));
 
             VeiculoDAO dao = new VeiculoDAO();
-            dao.adicionar(veiculo);
+            dao.alterar(veiculo);
 
             List<Veiculo> listaVeiculo = new ArrayList<Veiculo>();
             listaVeiculo = dao.listar();
