@@ -9,21 +9,18 @@
         <h1>Cadastro Produto</h1>
         <form id="frmCadProduto"  method="post" action="inserirProduto" >
             <table>
-
                 <tr>
                     <td>Codigo</td>
                     <td>
                         <input type="text" name="codigo" id="codigo">  
                     </td>
                 </tr>
-
                 <tr>
                     <td>Descrição</td>
                     <td> 
                         <input type="text" name="descricao" id="descricao">  
                     </td>             
                 </tr>
-
                 <tr>
                     <td>Valor</td>
                     <td> 
@@ -31,7 +28,12 @@
                     </td>            
                 </tr>
                 <tr>
-                    <td colspan="2"> <input type="submit" value="Gravar"> </td>
+                    <td> <input type="submit" value="Gravar"> </td>
+                    <td>
+                        <a href="./">
+                            <button type="button">Home</button>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </form>
