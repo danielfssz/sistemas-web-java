@@ -27,7 +27,7 @@
                 <tr>
                     <td>Valor</td>
                     <td> 
-                        <input type="money" name="valor" id="valor">  
+                        <input type="text" name="valor" id="valor">  
                     </td>            
                 </tr>
                 <tr>
