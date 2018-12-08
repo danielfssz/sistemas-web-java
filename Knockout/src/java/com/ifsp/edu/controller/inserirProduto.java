@@ -92,7 +92,7 @@ public class inserirProduto extends HttpServlet {
             listaProduto = dao.listar();
             request.setAttribute("listaProduto", listaProduto);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("listaProduto.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("listaProdutos.jsp");
             dispatcher.forward(request, response);
 
         } catch (ClassNotFoundException ex) {
