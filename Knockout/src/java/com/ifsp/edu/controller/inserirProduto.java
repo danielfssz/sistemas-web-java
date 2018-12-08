@@ -62,7 +62,9 @@ public class inserirProduto extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroProduto.jsp");
+        dispatcher.forward(request, response);
     }
 
     /**

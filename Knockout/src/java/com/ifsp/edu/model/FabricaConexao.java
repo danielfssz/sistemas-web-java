@@ -11,7 +11,7 @@ public class FabricaConexao {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro", "root", "modalgr");
-            return con;
+            return con; 
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
