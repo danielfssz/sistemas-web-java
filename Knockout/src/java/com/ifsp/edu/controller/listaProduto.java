@@ -65,7 +65,7 @@ public class listaProduto extends HttpServlet {
         //processRequest(request, response);
         try {
             IProdutoDAO dao = DAOFactory.createProdutoDAO();
-            
+
             List<ProdutoVO> listaProduto = new ArrayList<ProdutoVO>();
             listaProduto = dao.listar();
             request.setAttribute("listaProduto", listaProduto);
