@@ -4,9 +4,17 @@
         <servlet-name>Index</servlet-name>
         <servlet-class>com.ifsp.edu.controller.Index</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>inserirProduto</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.inserirProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>inserirProduto</servlet-name>
+        <url-pattern>/inserirProduto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
