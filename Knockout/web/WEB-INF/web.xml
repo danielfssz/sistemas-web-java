@@ -20,10 +20,5 @@
         <session-timeout>
             30
         </session-timeout>
-    </session-config>
-    <dependency> 
-        <groupId>mysql</groupId> 
-        <artifactId>mysql-connector-java</artifactId> 
-        <version>5.1.26</version> 
-    </dependency> 
+    </session-config>    
 </web-app>
