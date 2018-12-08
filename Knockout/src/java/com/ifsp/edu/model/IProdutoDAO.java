@@ -14,13 +14,13 @@ import java.util.List;
  */
 public interface IProdutoDAO {
 
-    public void adicionar(Produto produto);
+    public void adicionar(ProdutoVO produto);
 
-    public void alterar(Produto produto);
+    public void alterar(ProdutoVO produto);
 
-    public void excluir(Produto produto);
+    public void excluir(ProdutoVO produto);
 
-    public Produto getById(Produto produto) throws SQLException;
+    public ProdutoVO getById(ProdutoVO produto) throws SQLException;
 
-    public List<Produto> listar();
+    public List<ProdutoVO> listar();
 }

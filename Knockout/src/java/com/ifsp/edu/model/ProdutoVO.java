@@ -9,7 +9,7 @@ package com.ifsp.edu.model;
  *
  * @author Daniel
  */
-public class Produto {
+public class ProdutoVO {
 
     private int id;
     private String codigo;

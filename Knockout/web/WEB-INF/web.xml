@@ -8,6 +8,10 @@
         <servlet-name>inserirProduto</servlet-name>
         <servlet-class>com.ifsp.edu.controller.inserirProduto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listaProduto</servlet-name>
+        <servlet-class>com.ifsp.edu.controller.listaProduto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/Index</url-pattern>
@@ -16,9 +20,18 @@
         <servlet-name>inserirProduto</servlet-name>
         <url-pattern>/inserirProduto</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listaProduto</servlet-name>
+        <url-pattern>/listaProduto</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
-    </session-config>    
+    </session-config>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.26</version>
+    </dependency>
 </web-app>

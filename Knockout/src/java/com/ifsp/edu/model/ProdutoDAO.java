@@ -16,7 +16,7 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public void adicionar(Produto produto) {
+    public void adicionar(ProdutoVO produto) {
         String sql = "insert into produto (id, codigo, descricao, valor)"
                 + "values (?,?,?,?)";
 
@@ -36,7 +36,7 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public void alterar(Produto produto) {
+    public void alterar(ProdutoVO produto) {
         String sql = "update produto set codigo = ?, descricao = ?, valor = ? where id=?";
 
         try {
@@ -55,7 +55,7 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public void excluir(Produto produto) {
+    public void excluir(ProdutoVO produto) {
         String sql = "delete from produto where id = ?";
 
         try {
@@ -71,8 +71,8 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public Produto getById(Produto produto) throws SQLException {
-        Produto item = null;
+    public ProdutoVO getById(ProdutoVO produto) throws SQLException {
+        ProdutoVO item = null;
         ResultSet results;
 
         try {
@@ -82,7 +82,7 @@ public class ProdutoDAO implements IProdutoDAO {
             results = stmt.executeQuery();
 
             while (results.next()) {
-                item = new Produto();
+                item = new ProdutoVO();
                 item.setId(Integer.parseInt(results.getObject("id").toString()));
                 item.setCodigo(results.getObject("codigo").toString());
                 item.setDescricao(results.getObject("descricao").toString());
@@ -96,8 +96,8 @@ public class ProdutoDAO implements IProdutoDAO {
     }
 
     @Override
-    public List<Produto> listar() {
-        List<Produto> lista = new ArrayList<Produto>();
+    public List<ProdutoVO> listar() {
+        List<ProdutoVO> lista = new ArrayList<ProdutoVO>();
         ResultSet results;
         try {
             String sql = "Select * from produto;";
@@ -106,7 +106,7 @@ public class ProdutoDAO implements IProdutoDAO {
             results = stmt.executeQuery();
 
             while (results.next()) {
-                Produto item = new Produto();
+                ProdutoVO item = new ProdutoVO();
                 item.setId(Integer.parseInt(results.getObject("id").toString()));
                 item.setCodigo(results.getObject("codigo").toString());
                 item.setDescricao(results.getObject("descricao").toString());

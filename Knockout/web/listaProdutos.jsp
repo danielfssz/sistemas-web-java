@@ -17,7 +17,7 @@
                 <td>Descricao</td>
                 <td>Valor</td>                
             </tr>
-            <c:forEach  items="${listaProdutos}" var="produto">
+            <c:forEach  items="${listaProduto}" var="produto">
                 <tr>
                     <td>${produto.id}</td>
                     <td>${produto.codigo}</td>

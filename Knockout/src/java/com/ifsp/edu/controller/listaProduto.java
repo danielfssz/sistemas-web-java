@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Daniel
  */
-public class inserirProduto extends HttpServlet {
+public class listaProduto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +41,10 @@ public class inserirProduto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet inserirProduto</title>");
+            out.println("<title>Servlet listaProduto</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet inserirProduto at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet listaProduto at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,8 +63,19 @@ public class inserirProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("cadastroProduto.jsp");
-        dispatcher.forward(request, response);
+        try {
+            IProdutoDAO dao = DAOFactory.createProdutoDAO();
+            
+            List<ProdutoVO> listaProduto = new ArrayList<ProdutoVO>();
+            listaProduto = dao.listar();
+            request.setAttribute("listaProduto", listaProduto);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("listaProdutos.jsp");
+            dispatcher.forward(request, response);
+
+        } catch (ClassNotFoundException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     /**
@@ -78,26 +89,7 @@ public class inserirProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        try {
-            ProdutoVO produto = new ProdutoVO();
-            produto.setCodigo(request.getParameter("codigo"));
-            produto.setDescricao(request.getParameter("descricao"));
-            produto.setValor(Double.parseDouble(request.getParameter("valor")));
-
-            IProdutoDAO dao = DAOFactory.createProdutoDAO();
-            dao.adicionar(produto);
-
-            List<ProdutoVO> listaProduto = new ArrayList<ProdutoVO>();
-            listaProduto = dao.listar();
-            request.setAttribute("listaProduto", listaProduto);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("listaProdutos.jsp");
-            dispatcher.forward(request, response);
-
-        } catch (ClassNotFoundException ex) {
-            throw new RuntimeException(ex);
-        }
+        processRequest(request, response);
     }
 
     /**
