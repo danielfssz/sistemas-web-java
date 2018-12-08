@@ -7,7 +7,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="idUsuario" scope="request" class="com.ifsp.edu.model.Usuario"/>
+<jsp:useBean id="usuario" scope="request" class="com.ifsp.edu.model.Usuario"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,12 +49,21 @@
             }
         </style>
 
-        <nav id="menu">
-            <ul>
-                <li> <a href="veiculo_cadastro.jsp">Cadastro</a></li>
-                <li> <a href="./listaVeiculo">Relatorios</a></li>
-                <li> <a href="./fimSessao">Sair</a></li>
-            </ul>
-        </nav>
+        <c:choose>
+            <c:when test="${!empty sessionScope.usuario.id}">
+                <nav id="menu">
+                    <ul>
+                        <li> <a href="veiculo_cadastro.jsp">Cadastro</a></li>
+                        <li> <a href="./listaVeiculo">Relatorios</a></li>
+                        <li> <a href="./fimSessao">Sair</a></li>
+                    </ul>
+                </nav>
+            </c:when>
+            <c:when test="${empty sessionScope.usuario.id}">                
+                <jsp:forward page="index.html"></jsp:forward>
+            </c:when>
+        </c:choose>
+
+
 
 

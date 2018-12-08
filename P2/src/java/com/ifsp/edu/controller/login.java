@@ -57,7 +57,7 @@ public class login extends HttpServlet {
                     RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
                     dispatcher.forward(request, response);
                 } else {
-                    request.getSession().setAttribute("usuario", usuario);
+                    request.getSession().setAttribute("usuario", usuario);                    
                     RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
                     dispatcher.forward(request, response);
                 }
